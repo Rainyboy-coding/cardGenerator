@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI卡片生成器</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 自定义CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <!-- 顶部导航栏 -->
+    <nav class="bg-blue-600 text-white p-4 shadow-md">
+        <div class="container mx-auto">
+            <div class="flex justify-between items-center">
+                <h1 class="text-2xl font-bold">AI卡片生成器</h1>
+                <div class="flex space-x-4">
+                    <button class="px-3 py-2 bg-blue-700 rounded hover:bg-blue-800">配置API</button>
+                    <button class="px-3 py-2 bg-blue-700 rounded hover:bg-blue-800">选择模板</button>
+                    <button class="px-3 py-2 bg-blue-700 rounded hover:bg-blue-800">查看结果</button>
+                    <button class="px-3 py-2 bg-blue-700 rounded hover:bg-blue-800">调整卡片</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 步骤提示区 -->
+    <div class="bg-blue-100 p-4 border-b border-blue-200">
+        <div class="container mx-auto">
+            <p class="text-blue-800">步骤：1. 输入内容 → 2. 选择卡片类型 → 3. 生成卡片 → 4. 预览和导出</p>
+        </div>
+    </div>
+
+    <!-- 主内容区 -->
+    <main class="container mx-auto py-6 px-4">
+        <!-- 上部区域：文本输入和控制组件 -->
+        <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h2 class="text-xl font-semibold mb-4 text-gray-800">输入内容</h2>
+            
+            <div class="mb-4">
+                <label for="content" class="block text-gray-700 mb-2">卡片内容：</label>
+                <textarea id="content" class="w-full p-3 border border-gray-300 rounded-md h-40" placeholder="请输入需要生成卡片的内容..."></textarea>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                <div>
+                    <label for="template" class="block text-gray-700 mb-2">卡片类型：</label>
+                    <select id="template" class="w-full p-3 border border-gray-300 rounded-md">
+                        <option value="">请选择卡片类型</option>
+                        <option value="profile">个人资料</option>
+                        <option value="product">产品展示</option>
+                        <option value="meeting">会议通知</option>
+                        <option value="event">活动宣传</option>
+                    </select>
+                </div>
+                <div class="flex items-end">
+                    <button id="generate" class="bg-blue-600 text-white py-3 px-6 rounded-md hover:bg-blue-700 transition">生成卡片</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 下部区域：结果显示 -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- 左侧：HTML代码显示 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4 text-gray-800">HTML代码</h2>
+                <div class="bg-gray-900 text-green-400 p-4 rounded-md h-96 overflow-auto">
+                    <pre id="html-code"><code>&lt;div class="card"&gt;
+  &lt;h2&gt;示例卡片标题&lt;/h2&gt;
+  &lt;p&gt;这里将显示AI生成的卡片代码...&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+                <div class="mt-4">
+                    <button class="bg-gray-600 text-white py-2 px-4 rounded-md hover:bg-gray-700 transition">复制代码</button>
+                </div>
+            </div>
+            
+            <!-- 右侧：卡片预览 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4 text-gray-800">卡片预览</h2>
+                <div id="preview" class="border border-gray-300 rounded-md p-4 h-96 overflow-auto">
+                    <div class="card">
+                        <h2>示例卡片标题</h2>
+                        <p>这里将显示AI生成的卡片预览...</p>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <button class="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition">保存为图片</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-white p-6 mt-10">
+        <div class="container mx-auto text-center">
+            <p>© 2023 AI卡片生成器 - 基于AI技术的卡片设计工具</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html> 
