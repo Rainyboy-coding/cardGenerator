@@ -6,6 +6,8 @@
     <title>AI卡片生成器</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- html2canvas库 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <!-- 自定义CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -15,12 +17,6 @@
         <div class="container mx-auto">
             <div class="flex justify-between items-center">
                 <h1 class="text-2xl font-bold">AI卡片生成器</h1>
-                <div class="flex space-x-4">
-                    <button class="px-3 py-2 bg-blue-700 rounded hover:bg-blue-800">配置API</button>
-                    <button class="px-3 py-2 bg-blue-700 rounded hover:bg-blue-800">选择模板</button>
-                    <button class="px-3 py-2 bg-blue-700 rounded hover:bg-blue-800">查看结果</button>
-                    <button class="px-3 py-2 bg-blue-700 rounded hover:bg-blue-800">调整卡片</button>
-                </div>
             </div>
         </div>
     </nav>
@@ -52,6 +48,9 @@
                         <option value="product">产品展示</option>
                         <option value="meeting">会议通知</option>
                         <option value="event">活动宣传</option>
+                        <option value="wechat">微信文章</option>
+                        <option value="1080_800_knowledge">1080*800文章概念卡片</option>
+                        <option value="750_knowledge">750文章概念卡片</option>
                     </select>
                 </div>
                 <div class="flex items-end">
@@ -72,7 +71,7 @@
 &lt;/div&gt;</code></pre>
                 </div>
                 <div class="mt-4">
-                    <button class="bg-gray-600 text-white py-2 px-4 rounded-md hover:bg-gray-700 transition">复制代码</button>
+                    <button id="copy-code" class="bg-gray-600 text-white py-2 px-4 rounded-md hover:bg-gray-700 transition">复制代码</button>
                 </div>
             </div>
             
@@ -86,7 +85,7 @@
                     </div>
                 </div>
                 <div class="mt-4">
-                    <button class="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition">保存为图片</button>
+                    <button id="save-image" class="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition">保存为图片</button>
                 </div>
             </div>
         </div>
@@ -95,7 +94,7 @@
     <!-- 页脚 -->
     <footer class="bg-gray-800 text-white p-6 mt-10">
         <div class="container mx-auto text-center">
-            <p>© 2023 AI卡片生成器 - 基于AI技术的卡片设计工具</p>
+            <p>© 2025 AI卡片生成器 - 基于AI技术的卡片设计工具</p>
         </div>
     </footer>
 
